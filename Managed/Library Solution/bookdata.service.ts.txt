@@ -1,0 +1,34 @@
+import { Book } from './../../assets/models/book';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BookdataService {
+
+  books: Book[] = [
+    new Book(1, 'Diary of a Wimpy Kid: Hard Luck ', "Jeff Kinney", 'Diary of A Wimpy Kid: Hard Luck is the 8th edition of this beautifully scripted children-specific series. Greg Heffley is on an uninterrupted series of losing in life. Rowley Jefferson, who is his best pal, has dumped him for his new girlfriend, Abigail. Greg is now struggling to make new friends in mid-school. Rowley deems that Greg is jealous.',
+      "fiction"),
+
+    new Book(2, 'Diary of a Wimpy Kid: Dog Days', "Jeff Kinney", 'Diary of a Wimpy Kid: Dog Days is the super funny fourth title in the highly-illustrated, bestselling and award-winning Diary of a Wimpy Kid series by Jeff Kinney. Perfect for both boys and girls of 8+, reluctant readers and all the millions of devoted Wimpy Kid fans out there. Dog Days is also a major motion picture and box office smash.', "fiction"),
+
+    new Book(3, 'Diary of a Wimpy Kid: The Third Wheel', "Jeff Kinney", 'The Third Wheel is the hilarious new book in the brilliant, bestselling and award-winning Diary of a Wimpy Kid series. Perfect for readers of 8+ and all the millions of Wimpy Kid fans. Also now a box office-busting major motion franchise with the third Wimpy Kid movie, Dog Days released in the UK in August 2012!', "fiction"),
+
+    new Book(4, 'English Grammar', "Madhuban", 'English Grammar for grade 2', "school"),
+
+    new Book(5, 'Maths', "Madhuban", 'Maths for grade 2', "school"),
+
+    new Book(6, 'Social Science', "Madhuban", 'Social Science for grade 2', "school"),
+
+    new Book(7, 'Lingaashtakam', "author 1", 'Lingaashtakam', "spiritual"),
+
+    new Book(8, 'Spiritual Speech by GR', "GR", 'Spiritual Speech by GR', "spiritual")
+
+  ];
+
+  constructor() { }
+
+  getBooks(): Book[]{
+    return this.books;
+  }
+}

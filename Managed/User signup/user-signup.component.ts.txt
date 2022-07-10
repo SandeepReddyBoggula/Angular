@@ -1,0 +1,109 @@
+// import { Component, OnInit } from '@angular/core';
+// import { User } from '../shared/models/user';
+// import { Router } from '@angular/router';
+// import { RetailService } from '../shared/service/retail.service';
+// import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+// @Component({
+//   selector: 'app-user-signup',
+//   templateUrl: './user-signup.component.html',
+//   styleUrls: ['./user-signup.component.css']
+// })
+// export class UserSignupComponent implements OnInit {
+//   user: User;
+//   u_id: number;
+//   // new_user: User;
+
+//   constructor(private route: Router, private service: RetailService) {
+//   }
+
+//   ngOnInit(): void {
+//     //Fill your code 
+//     this.createForm();
+//   }
+//   userSignupForm: FormGroup;
+//   createForm() {
+//     this.userSignupForm = new FormGroup({
+//       name: new FormControl('', ([Validators.required, Validators.minLength(4), Validators.pattern('[a-zA-Z ]*')])),
+//       mob: new FormControl('', [Validators.required, this.mobile.bind(this)]),
+//       email: new FormControl('', [Validators.required, Validators.email]),
+//       password: new FormControl('', [Validators.required])
+
+//     })
+//   }
+//   mobile(control: FormControl): { [s: string]: boolean } {
+//     if (String(control.value).length != 10 || isNaN(Number(control.value))) {
+//       console.log(String(control.value).length)
+//       return { mobile: true }
+//     }
+//   }
+
+//   get name() {
+//     return this.userSignupForm.get('name');
+//   }
+//   get mob() {
+//     return this.userSignupForm.get('mob');
+//   }
+//   get email() {
+//     return this.userSignupForm.get('email');
+//   }
+//   get password() {
+//     return this.userSignupForm.get('password');
+//   }
+//   //Fill your code 
+
+//   addUser() {
+//     //Fill your code 
+//     this.u_id = this.service.getId();
+//     this.user = new User(this.u_id, this.userSignupForm.value.name, this.userSignupForm.value.mob, this.userSignupForm.value.email, this.userSignupForm.value.password)
+
+//     this.service.addNewUser(this.user);
+//     // console.warn(this.user)
+//     this.route.navigate(['userDisplay']);
+//   }
+
+// }
+import { Component, OnInit } from '@angular/core';
+import { User } from '../shared/models/user';
+import { Router } from '@angular/router';
+import {RetailService} from '../shared/service/retail.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-user-signup',
+  templateUrl: './user-signup.component.html',
+  styleUrls: ['./user-signup.component.css']
+})
+export class UserSignupComponent implements OnInit {
+  user:User;
+  userSignupForm :FormGroup;
+  patternName = '^[a-zA-Z ]*$'
+  patternMobile = '^[0-9]{10}$'
+  constructor(private route : Router,private service:RetailService) {
+   }
+
+   get name() {return this.userSignupForm.get('name')}
+   get mobile() {return this.userSignupForm.get('mobile')}
+   get email() {return this.userSignupForm.get('email')}
+   get password() {return this.userSignupForm.get('password')}
+
+  ngOnInit(): void {
+    this.userSignupForm = new FormGroup({
+        name: new FormControl(null,[Validators.required, Validators.minLength(4)]),
+        mobile: new FormControl(null,Validators.required),
+        email: new FormControl(null,[Validators.required, Validators.email]),
+        password: new FormControl(null, Validators.required)
+    })
+  }
+ 
+ 
+ //Fill your code 
+    
+    addUser(){     
+     this.user = new User(this.service.getId(), this.name.value, this.mobile.value, this.email.value, this.password.value);
+     console.log(this.user); 
+     this.service.addNewUser(this.user);
+      this.route.navigate(['userDisplay']);
+  }
+
+}

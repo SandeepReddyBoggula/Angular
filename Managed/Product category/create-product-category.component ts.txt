@@ -1,0 +1,43 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProductCategoryService } from 'src/app/shared/service/product-category.service';
+
+
+@Component({
+  selector: 'app-create-productCategory',
+  templateUrl: './create-product-category.component.html',
+  styleUrls: ['./create-product-category.component.css']
+})
+export class CreateProductCategoryComponent implements OnInit {
+  
+  constructor(public router : Router, public productService: ProductCategoryService){}
+  //Fill your code here 
+  createProductCategory = new FormGroup({
+    categoryName: new FormControl('',Validators.required),
+    imagePath: new FormControl('',Validators.required),
+    description: new FormControl('',Validators.required),
+    isVisible: new FormControl('',Validators.required),
+  });
+  ngOnInit(): void {}
+  get f() { return this.createProductCategory.controls; }
+
+  onCancel(){
+    this.createProductCategory.reset();
+  }
+  onSubmit() {
+    console.log("values", this.createProductCategory.value)
+    if(this.createProductCategory.valid){
+      let productData = {
+        category: this.createProductCategory.value.categoryName,
+        imageURL: this.createProductCategory.value.imagePath,
+        id:Math.floor(Math.random() * 100),
+        description: this.createProductCategory.value.description,
+        isVisible: this.createProductCategory.value.isVisible
+      }
+      this.productService.productCategory.push(productData)
+      this.router.navigate(['productCategory/show', ])
+    }
+    
+  }
+}

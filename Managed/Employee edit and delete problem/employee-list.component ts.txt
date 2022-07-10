@@ -1,0 +1,33 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup,FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { EmployeeService } from 'src/assets/services/employee-service.service';
+import { Employee } from '../../assets/models/employee';
+
+
+@Component({
+  selector: 'app-employee-list',
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.css']
+})
+export class EmployeeListComponent implements OnInit {
+
+  //Fill your code here
+  employeelist:Employee[];
+  constructor(private service:EmployeeService,private router: Router) {}
+
+  ngOnInit(): void {
+    this.employeelist=this.service.getEmpList();
+  }
+  
+  deleteEmployee(id:number){
+  //Fill your code here
+    console.log
+    this.employeelist=this.service.deleteEmployeeByID(id);
+    alert("Employee deleted successfully");
+  }
+
+  editEmployee(id:number){
+    this.router.navigate(['/empEdit',String(id)]);
+  }
+}

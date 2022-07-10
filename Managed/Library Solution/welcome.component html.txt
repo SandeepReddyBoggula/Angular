@@ -1,0 +1,8 @@
+<div class="main-container">
+    <img class="img-center"   src="/assets/icons/welcome.png" />
+    <br>
+    Welcome to ABL Online Library! This online library was started to make books and reading a part of every individual's life. With books related to schools, spiritual, fiction the team provides book recommendations tailored to all reading level and interest. The wide range of books makes this library more than just a "book lending" library and a much loved space among readers.
+    <br> <br> <br>
+    <h4>Importance of Book Reading!</h4>
+    Reading is not just an important professional skill. It is also a way to enjoy informative, creative, and inspiring works of literature that enrich our life experiences. Like any skill worth mastering, a reading habit requires time and dedication to develop. It is, however, a lifelong source of enjoyment and entertainment and an affordable hobby for anyone who wants to pick up a book.
+</div>

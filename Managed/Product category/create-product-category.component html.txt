@@ -1,0 +1,62 @@
+<div class="main-container">
+    <div class="logout-block">
+        <a href="/">logout</a>
+    </div>
+    <div class="clr20"></div>
+    <section class="commonsection dashboardarea row">
+        <div class="card-group">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="headline text-center">Create Product Category</div>
+                    <div class="clr20"></div>
+                    <form [formGroup]="createProductCategory"> 
+                        <div class="container">
+                            <div class="container-item-1">
+                                <div class="w-25 p-3 field-1">
+                                    <!-- <label for="category-name">Category Name: </label>
+                                <input id="category-name" type="text" formControlName="categoryName"> -->
+                                    <input mdbInput type="text" id="category-name" class="form-control " placeholder="Category Name" formControlName="categoryName">
+                                    <div *ngIf="f?.categoryName.errors &&(f?.categoryName.dirty || f?.categoryName.touched)" class="alert-danger">
+                                        <div *ngIf="f?.categoryName.errors.required">
+                                            Category Name cannot be blank
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field-2">
+                                <!-- <label for="image-path">Image Path: </label> -->
+                                    <input  mdbInput type="text" id="image-path" class="form-control" placeholder="Image Path" formControlName="imagePath">
+                                    <div *ngIf="f?.imagePath.errors &&(f?.imagePath.dirty || f?.imagePath.touched)" class="alert-danger">
+                                        <div *ngIf="f?.imagePath.errors.required">
+                                            Image URL cannot be blank
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-item-2">
+                                <div class="field-3">
+                                    <!-- <label for="description">Description: </label> -->
+                                    <input class="description"  mdbInput id="description" type="text" placeholder="Enter description" formControlName="description">
+                                    <div *ngIf="f?.description.errors &&(f?.description.dirty || f?.description.touched)" class="alert-danger">
+                                        <div *ngIf="f?.description.errors.required">
+                                            Description cannot be blank
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-item-3">
+                                <input  mdbInput type="checkbox" formControlName="isVisible" id="isVisible" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                                <label for="isVisible" class="form-check-label visible-label"> isVisible</label>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" class="btn btn-light button-cancel" (click)="onCancel()">Cancel</button>
+                            <button type="submit" class="btn btn-primary button-create" (click)="onSubmit()" [disabled]="!createProductCategory.valid">Create</button>
+                        </div>
+                    </form>
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </section>
+</div>

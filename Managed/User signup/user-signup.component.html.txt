@@ -1,0 +1,142 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Retail Project</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+            user-scalable=no">
+    <link href="/assets/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="login-wrapper">
+        <div class="left-side">
+            <div class="logo-wrapper">
+                <img src="/assets/login-logo.png">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="login-form sign-up">
+                <form [formGroup]="userSignupForm" #userForm="ngForm">
+                    <h1>Sign Up</h1>
+                    <div class="form-card">
+                        <div class="form-group h-form-style">
+                            <label>Name</label>
+                            <input type="text" id="user-name" class="form-control" formControlName="name">
+
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                                <div id="name-error" *ngIf="name.errors?.required">Name is required!</div>
+                                <div id="name-error" *ngIf="name.errors?.minLength && !(name.errors?.required)">Name must be at least 4 chars long!</div>
+                                <div id="name-error" *ngIf="name.errors?.pattern">Name cannot have numbers or special characters!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group h-form-style">
+                            <label>Mobile Number</label>
+                            <input type="number" id="user-phone" class="form-control" formControlName="mob">
+                            <div *ngIf="mob.invalid && (mob.dirty || mob.touched)">
+                                <div id="phone-error" *ngIf="mob.errors?.required">Mobile Number is required!</div>
+                                <div id="phone-error" *ngIf="mob.errors?.mobile && !(mob.errors?.required)">Mobile Number is invalid!</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group h-form-style">
+                            <label>Email</label>
+                            <input type="email" id="user-email" class="form-control" formControlName="email">
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                <div id="email-error" *ngIf="email.errors?.required">Email ID is required!</div>
+                                <div id="email-error" *ngIf="email.errors?.email && !(email.errors?.required)">Email ID is invalid!</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group h-form-style">
+                            <label>Password</label>
+                            <input type="number" id="user-password" class="form-control" formControlName="password">
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                                <div id="pwd-error" *ngIf="password.errors?.required">Password is required!</div>
+                            </div>
+                        </div>
+
+                        <div class="btn-section">
+                            <button id="addUser" class="btn btn-primary" [disabled]="userSignupForm.invalid" (click)="addUser()">SIGN UP</button>
+                        </div>
+                        <p class="sign-in-text">Already have an account? <a href="#" class="btn btn-text-primary">Sign
+                                    in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Retail Project</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="/assets/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="login-wrapper">
+        <div class="left-side">
+            <div class="logo-wrapper">
+                <img src="/assets/login-logo.png">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="login-form sign-up">
+                <form [formGroup]="userSignupForm" #userForm="ngForm">
+                    <h1>Sign Up</h1>
+                    <div class="form-card">
+                        <div class="form-group h-form-style">
+                            <label>Name</label>
+                            <input id="user-name" class="form-control" type="text" formControlName="name" [pattern]="patternName" />
+                            <div id="name-error">
+                                <p *ngIf="name.touched && name.errors?.required">Name is required!</p>
+                                <p *ngIf="name.touched && name.errors?.minlength">Name must be at least 4 chars long!</p>
+                                <p *ngIf="name.touched && name.errors?.pattern">Name cannot have numbers or special characters!</p>
+                            </div>
+                        </div>
+                        <div class="form-group h-form-style">
+                            <label>Mobile Number</label>
+                            <input id="user-phone" class="form-control" type="text" formControlName="mobile" [pattern]="patternMobile" />
+                            <div id="phone-error">
+                                <p *ngIf="mobile.touched && mobile.errors?.required">Mobile Number is required!</p>
+                                <p *ngIf="mobile.touched && mobile.errors?.pattern">Mobile Number is invalid!</p>
+                            </div>
+                        </div>
+                        <div class="form-group h-form-style">
+                            <label>Email</label>
+                            <input id="user-email" class="form-control" type="text" formControlName="email" />
+                            <div id="email-error">
+                                <p *ngIf="email.touched && email.errors?.required">Email ID is required!</p>
+                                <p *ngIf="email.touched && email.errors?.email">Email ID is invalid!</p>
+                            </div>
+                        </div>
+                        <div class="form-group h-form-style">
+                            <label>Password</label>
+                            <input id="user-password" class="form-control" type="text" formControlName="password" />
+                            <div id="pwd-error">
+                                <p *ngIf="password.touched && password.errors?.required">Password is required!</p>
+                            </div>
+                        </div>
+                        <div class="btn-section">
+                            <button class="btn btn-primary" id="addUser" [disabled]="!userSignupForm.valid" (click)="addUser()">SIGN UP</button>
+                        </div>
+                    </div>
+                    <p class="sign-in-text">Already have an account? <a href="#" class="btn btn-text-primary">Sign in</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

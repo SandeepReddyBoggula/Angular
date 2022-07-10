@@ -1,0 +1,34 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import {UserSignupComponent} from '../user-signup/user-signup.component';
+import {UserDisplayComponent} from '../user-display/user-display.component';
+
+export const appRoutes: Routes = [
+  {
+    path : '',
+    component:UserSignupComponent
+  },
+  {
+    path:'userSignUp',
+    component:UserSignupComponent
+  },
+  {
+    path:'userDisplay',
+    component:UserDisplayComponent
+  },
+];
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot (appRoutes)
+  ],
+  exports:
+  [
+    RouterModule
+  ]
+})
+export class AppRoutingModule { }
+export const routingComponents=[UserSignupComponent,UserDisplayComponent]

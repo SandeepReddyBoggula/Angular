@@ -1,0 +1,32 @@
+import { Injectable } from '@angular/core';
+import { User } from '../models/user';
+import { USER } from '../models/user-mock';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RetailService {
+
+  user:User;
+  mockUserList:User[]=USER;
+  userList:User[] = this.mockUserList;
+
+  constructor() { }
+
+  
+  id:number = this.userList.length;
+  getId(){
+    this.id = this.id+1;
+    return this.id;
+  }
+  
+   addNewUser( user:User){
+    this.userList.push(user);
+  }
+  getUserById(id:number){    
+    return this.getUserList().find(user => user.id===+id);
+  }
+  getUserList(){
+    return this.userList;
+  }
+}

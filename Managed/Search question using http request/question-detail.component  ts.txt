@@ -1,0 +1,43 @@
+import { Component, OnInit } from '@angular/core';
+import { Question } from '../question/question';
+import { QuestionService } from '../question/question.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-question-detail',
+  templateUrl: './question-detail.component.html',
+  styleUrls: ['./question-detail.component.css'],
+  providers: [QuestionService],
+})
+export class QuestionDetailComponent implements OnInit {
+
+  questiondata:any;
+
+  id:any
+  question:any;
+  answer:any
+
+  constructor( private route: ActivatedRoute,
+    private router: Router,
+    private service: QuestionService) { }
+
+  ngOnInit() {
+    // this.question$ = this.route.paramMap.pipe(
+    //   switchMap((params: ParamMap) =>
+    //     this.service.getQuestion(params.get('id')))
+    // );
+    this.id=this.route.snapshot.params.id;
+    this.questiondata=this.service.getQuestion(this.id)
+    console.log(this.questiondata);
+    this.question=this.questiondata[0].name;
+    this.answer=this.questiondata[0].answer;
+
+  }
+  gotoQuestions() {
+    //fill your code here
+    this.router.navigate(['/questions']);
+  }
+
+}

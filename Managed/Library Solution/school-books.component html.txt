@@ -1,0 +1,23 @@
+<div class="main-wrapper">
+    <div class="products-wrapper">
+        <div class="book-items">
+            <span>>>>>Home>>School Books</span>
+            <div class="row-group" >
+                <div class="col" *ngFor="let bdata of booksdata">
+                    <div id="book-card" class="book-card" *ngIf="bdata.category=='school'" >
+                        <figure id="book-image" class="image">
+                            <img src="/assets/icons/book-pic.jpg">
+                        </figure>
+                        <p id="book-title-0" class="book-name">{{bdata.title}}</p>
+                        <p id="book-author" class="small-text">{{bdata.author}}</p>
+                        <p id="book-desc-0" class="small-text">{{bdata.description}}</p>
+                        <div class="btn-section">
+                            <button id="btn-wish-0" class="btn btn-secondary" (click)="onSelect(bdata)">WISHLIST</button>
+                            <button id="btn-rent-0" class="btn btn-primary">RENT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

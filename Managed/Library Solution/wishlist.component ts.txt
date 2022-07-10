@@ -1,0 +1,31 @@
+import { Book } from './../../assets/models/book';
+import { BookdataService } from './../services/bookdata.service';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-wishlist',
+  templateUrl: './wishlist.component.html',
+  styleUrls: ['./wishlist.component.css']
+})
+export class WishlistComponent implements OnInit {
+
+  public bookid;
+  public bookname;
+  booksdata: Book[]=[];
+
+  constructor(private route: ActivatedRoute, private bookService: BookdataService) { }
+
+  ngOnInit(): void {
+    this.booksdata = this.bookService.getBooks();
+
+    let id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.bookid = id;
+     for(let i=0; i< this.booksdata.length; i++){
+       if(this.booksdata[i].id== this.bookid){
+         this.bookname = this.booksdata[i].title;
+       }
+     }
+  }
+
+}

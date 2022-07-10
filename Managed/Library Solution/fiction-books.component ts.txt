@@ -1,0 +1,27 @@
+import { Router } from '@angular/router';
+import { Book } from './../../assets/models/book';
+import { BookdataService } from './../services/bookdata.service';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-fiction-books',
+  templateUrl: './fiction-books.component.html',
+  styleUrls: ['./fiction-books.component.css']
+})
+export class FictionComponent implements OnInit {
+
+  //Fill your code here
+
+  booksdata: Book[]=[];
+
+  constructor(private bookService: BookdataService, private router:Router) { }
+
+  ngOnInit(): void {
+    this.booksdata = this.bookService.getBooks();
+    // console.log(this.bookService.getBooks());
+  }
+
+  onSelect(book){
+    this.router.navigate(['/wishlist',book.id])
+  }
+}

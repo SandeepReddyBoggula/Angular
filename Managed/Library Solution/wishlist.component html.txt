@@ -1,0 +1,1 @@
+<div class="main-container" id="wishlist-msg">Book <b>{{bookname}}</b> has been added to your wishlist!</div>

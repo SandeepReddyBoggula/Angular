@@ -1,0 +1,41 @@
+import { FictionComponent } from './fiction-books/fiction-books.component';
+import { SpiritualComponent } from './spiritual-books/spiritual-books.component';
+import { SchoolBooksComponent } from './school-books/school-books.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+
+
+const routes: Routes = [
+  {
+    path:'',
+    component:WelcomeComponent
+  },
+  {
+    path:'welcome',
+    component:WelcomeComponent
+  },
+  {
+    path:'school',
+    component:SchoolBooksComponent
+  },
+  {
+    path:'spirtual',
+    component:SpiritualComponent
+  },
+  {
+    path:'fiction',
+    component:FictionComponent
+  },
+  {
+    path:'wishlist/:id',
+    component:WishlistComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

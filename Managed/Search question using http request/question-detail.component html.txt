@@ -1,0 +1,8 @@
+<h1>Question</h1>
+<h2>"{{question}}"</h2>
+<div class="quesId">Id : {{id}}</div>
+<h3>Question</h3>
+<div class="question">{{question}}</div>
+<h3>Answer</h3>
+<div class="answer">{{answer}}</div>
+<button (click)="gotoQuestions()" style="margin: 20px;padding:10px;background-color:darkslateblue ;color: whitesmoke;border: 0;border-radius: 5px; ">Back</button>

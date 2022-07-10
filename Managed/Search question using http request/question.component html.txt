@@ -1,0 +1,10 @@
+<h3 style="text-align: center;">Questions</h3>
+<label for="">Question</label><br>
+<input id="search" mdbInput class="input" type="text" [(ngModel)]="input" placeholder="Type anything" (ngModelChange)="searchquestion()" />
+<div class="container">
+    <ul class="questions" >
+        <li *ngFor="let question of questions">
+            <a class="questions" [routerLink]="['questiondetails',question.id]" ><span class="badge">Q{{question.id}}</span><span>{{question.name}}</span></a>
+        </li>
+    </ul>
+</div>

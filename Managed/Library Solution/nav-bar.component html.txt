@@ -1,0 +1,17 @@
+<nav class="navbar-sidemenu">
+    <div class="product-logo">
+        <img src="./assets/icons/logo.png" alt="">
+    </div>
+    <ul>
+        <li><a id="home" class="myLinkStyle" routerLink="welcome"><img src="./assets/icons/home.png">Home</a>
+        </li>
+
+        <li><a id="school" class="myLinkStyle" routerLink="school"><img src="./assets/icons/school.png">School Books</a>
+        </li>
+
+        <li><a id="spitriual" class="myLinkStyle" routerLink="spirtual"><img
+                    src="./assets/icons/spiritual.png">Spiritual Books</a></li>
+        <li><a id="fiction" class="myLinkStyle" routerLink="fiction"><img src="./assets/icons/fiction.jpg">Fiction
+                Books</a></li>
+    </ul>
+</nav>
